@@ -1,5 +1,5 @@
 {
-  "name": "train-stations",
+  "name": "train-stations-map",
   "version": "0.1.0",
   "description": "",
   "main": "src/index.tsx",
