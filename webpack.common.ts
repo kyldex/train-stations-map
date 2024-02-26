@@ -1,5 +1,6 @@
 import path from 'path';
 import { Configuration } from 'webpack';
+import Dotenv from 'dotenv-webpack';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 
@@ -31,6 +32,7 @@ const config: Configuration = {
   },
   resolve: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
   plugins: [
+    new Dotenv(),
     new MiniCssExtractPlugin({ filename: 'style.css' }),
     new CleanWebpackPlugin()
   ]

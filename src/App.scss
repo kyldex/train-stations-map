@@ -1,6 +1,13 @@
-.title-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.app-container {
   height: 100vh;
+
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10%;
+    font-size: 1.3rem;
+    text-align: center;
+    color: #262626;
+  }
 }
