@@ -3,6 +3,10 @@ import { Map as MaplibreMap } from 'maplibre-gl';
 
 import './Map.scss';
 
+import { MAP_STYLE_URL, PARIS_CENTER_COORDS } from '../utils/constants';
+
+const MAP_API_KEY = process.env.MAP_TILER_API_KEY;
+
 // Initialize the Maplibre GL JS map object.
 const Map: FC = () => {
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -12,7 +16,9 @@ const Map: FC = () => {
       const maplibreMap = new MaplibreMap({
         container: mapContainer.current,
         // create a MapTiler account
-        style: ''
+        style: `${MAP_STYLE_URL}?key=${MAP_API_KEY}`,
+        center: PARIS_CENTER_COORDS,
+        zoom: 12
       });
     }
   }, []);

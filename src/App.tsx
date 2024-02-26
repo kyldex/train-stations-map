@@ -7,7 +7,7 @@ import Map from './map/Map';
 const App: FC = () => {
   return (
     <div className="app-container">
-      <h1>Train Stations</h1>
+      <h1>TRAIN STATIONS</h1>
       <Map />
     </div>
   );
