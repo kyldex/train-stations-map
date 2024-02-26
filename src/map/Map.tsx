@@ -3,7 +3,11 @@ import { Map as MaplibreMap } from 'maplibre-gl';
 
 import './Map.scss';
 
-import { MAP_STYLE_URL, PARIS_CENTER_COORDS } from '../utils/constants';
+import {
+  MAP_STYLE_URL,
+  PARIS_CENTER_COORDS,
+  INIT_MAP_ZOOM
+} from '../utils/constants';
 
 const MAP_API_KEY = process.env.MAP_TILER_API_KEY;
 
@@ -18,7 +22,7 @@ const Map: FC = () => {
         // create a MapTiler account
         style: `${MAP_STYLE_URL}?key=${MAP_API_KEY}`,
         center: PARIS_CENTER_COORDS,
-        zoom: 12
+        zoom: INIT_MAP_ZOOM
       });
     }
   }, []);
