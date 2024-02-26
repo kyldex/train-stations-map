@@ -1,13 +1,14 @@
+import { FC } from 'react';
+
 import './App.scss';
 
-type Props = {
-  title: string;
-};
+import Map from './map/Map';
 
-const App = ({ title }: Props) => {
+const App: FC = () => {
   return (
-    <div className="title-container">
-      <h1>{title}</h1>
+    <div className="app-container">
+      <h1>Train Stations</h1>
+      <Map />
     </div>
   );
 };
