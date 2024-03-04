@@ -1,7 +1,10 @@
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import { Map as MaplibreMap, NavigationControl } from 'maplibre-gl';
 
 import './Map.scss';
+
+import { useMapContext } from '../context/MapContext';
+import Stations from './Stations';
 
 import {
   MAP_BASE_URL,
@@ -14,6 +17,8 @@ const MAP_API_KEY = process.env.MAP_TILER_API_KEY;
 
 // Initialize the Maplibre GL JS map object.
 const Map: FC = () => {
+  const { mapRef } = useMapContext();
+  const [mapHasLoaded, setMapHasLoaded] = useState(false);
   const mapContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -27,11 +32,18 @@ const Map: FC = () => {
       maplibreMap.addControl(new NavigationControl());
       maplibreMap.on('load', () => {
         console.log(maplibreMap.getStyle());
+        maplibreMap.on('moveend', () => {
+          console.log(maplibreMap.getZoom());
+        })
+        mapRef.current = maplibreMap;
+        setMapHasLoaded(true);
       });
     }
   }, []);
 
-  return <div className="map-container" ref={mapContainer} />;
+  return <div className="map-container" ref={mapContainer}>
+    {mapHasLoaded ? <Stations /> : null}
+  </div>;
 };
 
 export default Map;
