@@ -4,12 +4,12 @@
     "node": true,
     "es6": true
   },
-  "extends": ["eslint:recommended", "prettier"],
+  "extends": ["airbnb", "airbnb/hooks", "prettier"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier"],
+  "plugins": ["prettier"],
   "settings": {
     "import/resolver": {
       "node": {
